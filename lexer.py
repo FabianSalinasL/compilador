@@ -12,7 +12,7 @@ class Token:
         self.text = text
         self.priority = priority
 
-valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/",""]
+valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/","", "L", "F", "C","I"]
 t=0
 
 def tokenize(program):
@@ -56,7 +56,38 @@ def gramm(parts):
     else:
         print("ERROR: invalid sintax 2!  ---> {}".format(token))
         sys.exit(1)
-    #if next_token(parts) == "":
+
+    token = next_token(parts)
+    if token == "F":
+        pass
+    elif token in ("a","b","c","d"):
+        token = next_token(parts)
+        if token == "=":
+            #next_token(parts)
+            print("correct token!")
+        else:
+            print("ERROR: invalid sintax 3!  ---> {}".format(token))
+            sys.exit(1)
+        token = next_token(parts)
+        if token in ("0","1","2","3","4","5","6","7","8","9"):
+            #next_token(parts)
+            print("correct token!")
+        else:
+            print("ERROR: invalid sintax 4!  ---> {}".format(token))
+            sys.exit(1)
+
+
+
+
+    elif token == "L":
+        pass
+    elif token == "I":
+        pass
+
+
+
+
+
 
 
 
