@@ -2,6 +2,7 @@
 #Fab lexer!
 import re
 import sys
+import inspect
 
 
 
@@ -61,28 +62,67 @@ def gramm(parts):
     if token == "F":
         pass
     elif token in ("a","b","c","d"):
-        token = next_token(parts)
-        if token == "=":
-            #next_token(parts)
-            print("correct token!")
-        else:
-            print("ERROR: invalid sintax 3!  ---> {}".format(token))
-            sys.exit(1)
-        token = next_token(parts)
-        if token in ("0","1","2","3","4","5","6","7","8","9"):
-            #next_token(parts)
-            print("correct token!")
-        else:
-            print("ERROR: invalid sintax 4!  ---> {}".format(token))
-            sys.exit(1)
-
-
-
-
+        assign(parts)
     elif token == "L":
         pass
     elif token == "I":
         pass
+
+    token = next_token(parts)
+    print("2nd round {}".format(token))
+    if token == "F":
+        pass
+    elif token in ("a","b","c","d"):
+        assign(parts)
+    elif token == "L":
+        pass
+    elif token == "I":
+        pass
+    else:
+        print("ERROR: invalid sintax 3!  ---> {}".format(token))
+        sys.exit(1)
+
+
+    token = next_token(parts)
+    print("3d round {}".format(token))
+    if token == "F":
+        pass
+    elif token in ("a","b","c","d"):
+        assign(parts)
+    elif token == "L":
+        pass
+    elif token == "I":
+        pass
+    else:
+        print("ERROR: invalid sintax 4!  ---> {}".format(token))
+        sys.exit(1)
+
+
+def assign(parts):
+    token = next_token(parts)
+    if token == "=":
+        #next_token(parts)
+        print("correct token!")
+    else:
+        print("ERROR: invalid sintax 5!  ---> {}".format(token))
+        sys.exit(1)
+
+    token = next_token(parts)
+    if token in ("0","1","2","3","4","5","6","7","8","9","a","b","c","d"):
+        #next_token(parts)
+        print("correct token!")
+    else:
+        print("ERROR: invalid sintax 6!  ---> {}".format(token))
+        sys.exit(1)
+
+    token = next_token(parts)
+
+
+
+
+
+
+
 
 
 

@@ -1,12 +1,12 @@
 
 #Fab Comp V1.0
 
-import sys, subprocess, argparse
+import sys, argparse
 
 from lexer import *
 #import tokens
 
-from parser import *
+#from parser import *
 #import rules
 
 #from code_gen import *
