@@ -1,6 +1,7 @@
 
 #Fab lexer!
 import re
+import sys
 
 
 
@@ -10,49 +11,67 @@ class Token:
         self.name = name
         self.text = text
         self.priority = priority
-    def match(self, token):
-        """Checks if the provided token matches self. Returns true iff both
-        tokens have the same name and text, self.text is None"""
-        if not isinstance(token, Token): return False
-        if self.name != token.name: return False
-        if not self.text: return True
-        return (self.text == token.text)
 
+valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/",""]
+t=0
 
-def tokenize(program, prims):
+def tokenize(program):
 
     #print("inside tokenize")
     #print(program)
     parts = re.split("\s+", program)
+    if parts[-1] == "":
+        parts.remove("")
+    print(parts)
+    i=0
+
+    for part in parts:
+        if part in valid:
+            pass
+            #print("{}: {} is instance".format(i,part))
+            #i+=1
+        else:
+            print("ERROR: {} not defined!".format(part))
+            sys.exit(1)
+    gramm(parts)
+
+    #print("next {}".format(next_token(parts)))
+
+def gramm(parts):
+
+    token = next_token(parts)
+
+    if token == "M":
+        #next_token(parts)
+        #print("next token: {}".format(next_token(parts)))
+        print("correct token!")
+    else:
+        print("ERROR: invalid sintax 1!  ---> {}".format(token))
+        sys.exit(1)
+
+    token = next_token(parts)
+    if token == "{":
+        #next_token(parts)
+        print("correct token!")
+    else:
+        print("ERROR: invalid sintax 2!  ---> {}".format(token))
+        sys.exit(1)
+    #if next_token(parts) == "":
 
 
-    for prim in prims:
-        new_parts = []
-        for part in parts:
-            if isinstance(part, str):
-                split = part.split(prim.text)
-                print(split)
-                for s in split:
-                    if len(s) > 0: new_parts.append(s)
-                    new_parts.append(prim)
-                new_parts.pop()
-            else:
-                new_parts.append(part)
 
-        parts = new_parts
-        #print(parts)
 
-    def make_token(part):
-        # if it's already a token, don't change anything
-        if isinstance(part, Token):
-            return part
-        # if it's a number, store it as an integer
-        elif re.fullmatch("[0-9]*", part):
-            return Token("integer", part)
-        # if it's a valid name, stori it as a name
-        elif re.fullmatch("[a-zA-Z_][a-zA-Z0-9_]*", part):
-            return Token("name", part)
-        else: # we've found something unexpected! complain.
-            raise TokenException(part)
 
-    return list(map(make_token, parts))
+def next_token(parts):
+    global t
+    #print("valor t {}".format(t))
+    t+=1
+    return parts[t-1]
+
+
+    #for part in parts:
+    #    if part == "M":
+
+    #return(parts)
+
+
