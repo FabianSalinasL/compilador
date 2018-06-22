@@ -25,11 +25,13 @@ def tokenize(program, prims):
     #print(program)
     parts = re.split("\s+", program)
 
+
     for prim in prims:
         new_parts = []
         for part in parts:
             if isinstance(part, str):
                 split = part.split(prim.text)
+                print(split)
                 for s in split:
                     if len(s) > 0: new_parts.append(s)
                     new_parts.append(prim)
@@ -38,7 +40,7 @@ def tokenize(program, prims):
                 new_parts.append(part)
 
         parts = new_parts
-        print(parts)
+        #print(parts)
 
     def make_token(part):
         # if it's already a token, don't change anything

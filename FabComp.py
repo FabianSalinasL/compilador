@@ -111,6 +111,6 @@ if __name__=="__main__":
                             subprocess.call(["ld", output_name + ".o", "-o", output_name])
                             print("Done.")
         """
-        print(token_list)
+        #print(token_list)
     finally:
         args.input.close()
