@@ -47,7 +47,7 @@ def gramm(parts):
         #print("next token: {}".format(next_token(parts)))
         print("correct token!")
     else:
-        print("ERROR: invalid sintax 1! expected  ---> M".format(token))
+        print("ERROR: invalid sintax 1! expected  ---> M")
         sys.exit(1)
 
     token = next_token(parts)
@@ -55,7 +55,7 @@ def gramm(parts):
         #next_token(parts)
         print("correct token!")
     else:
-        print("ERROR: invalid sintax 2! Expected  ---> {".format(token))
+        print("ERROR: invalid sintax 2! Expected  ---> {")
         sys.exit(1)
 
     token = next_token(parts)
@@ -64,13 +64,13 @@ def gramm(parts):
         pass
     elif token in ("a","b","c","d"): #Variable declaration
         assign(parts)
-        print("***********************")
+        #print("***********************")
     elif token == "L":
         pass
     elif token == "I":
         pass
     else:
-        print("ERROR: invalid sintax 3! Expected F, L, I or variable {".format(token))
+        print("ERROR: invalid sintax 3! Expected F, L, I or variable")
         sys.exit(1)
 
     token = prev_token(parts)
@@ -93,7 +93,7 @@ def assign(parts):
         #next_token(parts)
         print("correct token!")
     else:
-        print("ERROR: invalid sintax 6! Expected  ---> =".format(token))
+        print("ERROR: invalid sintax 6! Expected  ---> =")
         sys.exit(1)
 
     token = next_token(parts)
@@ -101,12 +101,12 @@ def assign(parts):
         #next_token(parts)
         print("correct token!")
     else:
-        print("ERROR: invalid sintax 6! Expected  ---> variable or int".format(token))
+        print("ERROR: invalid sintax 6! Expected  ---> variable or int")
         sys.exit(1)
 
     token = next_token(parts)
     if token in ("a","b","c","d"):
-        print("token value: = {}".format(token))
+        #print("token value: = {}".format(token))
         #token = next_token(parts)
         #print("token value: = {}".format(token))
         assign(parts)
@@ -123,7 +123,7 @@ def assign(parts):
             print("ERROR: invalid sintax ---> another token after }")
             sys.exit(1)
     else:
-        break
+
         print("exiting assign with token value of {} and t= {}".format(token,t))
 
 

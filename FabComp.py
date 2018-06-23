@@ -4,12 +4,7 @@
 import sys, argparse
 
 from lexer import *
-#import tokens
 
-#from parser import *
-#import rules
-
-#from code_gen import *
 
 
 class NoMainFunctionException(Exception):
@@ -19,19 +14,21 @@ if __name__=="__main__":
 
 
     # Parse the command-line arguments
-    parser = argparse.ArgumentParser(description='A small C compiler.')
+    parser = argparse.ArgumentParser(description='A small MUSIM-F compiler.')
 
     # The input .c file name
     parser.add_argument('input', metavar='input_file',
-                        type=argparse.FileType('r'), help="the input c file")
+                        type=argparse.FileType('r'), help="the input f file")
 
     # The output file name
     parser.add_argument('-o', metavar='output_file', dest='output',
                         help="the name for the output files")
 
+    """
     # A flag to create only the asm file
     parser.add_argument('-S', dest='asm_only', action='store_const', const=True,
                         default=False, help="create only the assembly file")
+    """
     args = parser.parse_args()
 
 
