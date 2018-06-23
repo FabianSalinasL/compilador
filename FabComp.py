@@ -1,5 +1,5 @@
 
-#Fab Comp V2.0
+#Fab Comp V3.0
 
 import sys, argparse
 
@@ -40,11 +40,11 @@ if __name__=="__main__":
         # If the file opened and was read, then carry on with tokenizing
         #try:
         token_list = tokenize(program_text)
-        #print(token_list)
-        #except
-        #except TokenException as e: # catch any exceptions from the lexer
-        #    print(e)
-        #    sys.exit(1)
+
+        f=open("testout","a+")
+        f.write("END")
+        f.close()
+
 
         print("\nCompilation complete!!!")
     finally:

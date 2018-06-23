@@ -1,5 +1,5 @@
 
-#Fab lexer V2.0!
+#Fab lexer V3.0!
 import re
 import sys
 import inspect
@@ -47,6 +47,9 @@ def gramm(parts):
         #next_token(parts)
         #print("next token: {}".format(next_token(parts)))
         print("correct token!")
+        f=open("testout","a+")
+        f.write(".CODE\n")
+        f.close()
     else:
         print("ERROR: invalid sintax 1! expected  ---> M")
         sys.exit(1)
@@ -65,6 +68,12 @@ def gramm(parts):
         pass
     elif token in ("a","b","c","d"): #Variable declaration
         print("correct token!")
+
+        f=open("testout","a+")
+        f.write("PUSHA {}\n".format(token))
+        f.close()
+
+
         assign(parts)
         #print("***********************")
     elif token == "L":
@@ -105,6 +114,13 @@ def assign(parts):
     if token in ("0","1","2","3","4","5","6","7","8","9","a","b","c","d"):
         #next_token(parts)
         print("correct token!")
+
+        f=open("testout","a+")
+        f.write("PUSHA {}\n".format(token))
+        f.write("LOAD\n")
+        f.close()
+
+
     else:
         print("ERROR: invalid sintax 6! Expected  ---> variable or int")
         sys.exit(1)
