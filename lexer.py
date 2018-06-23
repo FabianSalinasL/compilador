@@ -1,5 +1,5 @@
 
-#Fab lexer!
+#Fab lexer V2.0!
 import re
 import sys
 import inspect
