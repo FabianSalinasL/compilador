@@ -13,7 +13,7 @@ class Token:
         self.text = text
         self.priority = priority
 
-valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/","", "L", "F", "C","I"]
+valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/","", "L", "F", "C","I","(",")"]
 t=0
 
 
@@ -125,6 +125,7 @@ def assign(parts):
             token = next_token(parts)
         except:
             print("in exception!!")
+
         else:
             print("ERROR: invalid sintax ---> another token after }")
             sys.exit(1)
