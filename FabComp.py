@@ -1,5 +1,5 @@
 
-#Fab Comp V1.0
+#Fab Comp V2.0
 
 import sys, argparse
 
