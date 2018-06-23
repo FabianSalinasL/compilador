@@ -49,6 +49,6 @@ if __name__=="__main__":
         #    print(e)
         #    sys.exit(1)
 
-        print("\ncompiling ok!")
+        print("\nCompilation complete!!!")
     finally:
         args.input.close()
