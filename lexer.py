@@ -16,6 +16,7 @@ class Token:
 valid = ["M","EM","0","1","2","3","4","5","6","7","8","9","a","b","c","d","=","{","}","+","-","*","/","", "L", "F", "C","I"]
 t=0
 
+
 def tokenize(program):
 
     #print("inside tokenize")
@@ -63,6 +64,7 @@ def gramm(parts):
     if token == "F":
         pass
     elif token in ("a","b","c","d"): #Variable declaration
+        print("correct token!")
         assign(parts)
         #print("***********************")
     elif token == "L":
@@ -83,7 +85,10 @@ def gramm(parts):
             print("in exception!!")
         else:
             print("ERROR: another token after }")
-
+    print(parts[-1])
+    if parts[-1] != "}":
+        print("ERROR: invalid sintax! Expected } at the end of program!")
+        sys.exit(1)
 
 
 def assign(parts):
@@ -106,6 +111,7 @@ def assign(parts):
 
     token = next_token(parts)
     if token in ("a","b","c","d"):
+        print("correct token!")
         #print("token value: = {}".format(token))
         #token = next_token(parts)
         #print("token value: = {}".format(token))
@@ -123,8 +129,10 @@ def assign(parts):
             print("ERROR: invalid sintax ---> another token after }")
             sys.exit(1)
     else:
-
-        print("exiting assign with token value of {} and t= {}".format(token,t))
+        pass
+        print("ERROR: invalid sintax ---> expected another variable")
+        sys.exit(1)
+        #   print("exiting assign with token value of {} and t= {}".format(token,t))
 
 
 def next_token(parts):
